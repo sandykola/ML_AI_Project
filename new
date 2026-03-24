@@ -1,0 +1,164 @@
+Sandy notes**  
+  
+**1. Overall objective of the process**  
+	•	Core task:  
+	•	Compare **FO internal price vs external market price**  
+	•	For each futures contract:  
+  
+Difference = Internal\ Price - External\ Price  
+  
+PnL\ Impact = Difference \times Position  
+  
+👉 Purpose:  
+	•	Check if **trader marking is accurate**  
+	•	Quantify **valuation impact (PV / PnL)**  
+  
+⸻  
+  
+**2. Tool used: Futures Checker (central system)**  
+	•	This tool:  
+	•	Pulls **all required data automatically**  
+	•	Data includes:  
+	•	Positions  
+	•	Internal prices (RAMP)  
+	•	External reference prices  
+	•	Static data  
+  
+👉 This is the **execution layer** of MAP  
+  
+⸻  
+  
+**3. How you start daily process**  
+  
+Steps:  
+	1.	Go to **User Settings**  
+	2.	Select:  
+	•	Region  
+	•	Business date  
+	3.	Open:  
+	•	**Futures Map Review**  
+  
+👉 System then loads full dataset  
+  
+⸻  
+  
+**4. Data sources (very important mapping)**  
+  
+**A. Static data**  
+	•	Futures code, tenor, etc.  
+	•	Source:  
+	•	Internal static system (Sierra)  
+	•	Ultimately sourced from Bloomberg  
+  
+⸻  
+  
+**B. Position data**  
+	•	Source:  
+	•	Booking system (**stock**)  
+	•	Aggregation:  
+	•	Portfolio level  
+  
+⸻  
+  
+**C. Internal price (BNP price)**  
+	•	Source:  
+	•	**RAMP system**  
+	•	This is:  
+	•	FO contributed price  
+  
+⸻  
+  
+**D. External price**  
+	•	Source:  
+	•	From earlier flow:  
+	•	Reference Close Asia  
+	•	Ramp / mid / exchange logic  
+  
+👉 This is what you validate against  
+  
+⸻  
+  
+**5. PnL impact calculation columns**  
+	•	Original PnL:  
+	•	In contract currency (USD, GBP etc.)  
+	•	Converted PnL:  
+	•	EUR equivalent  
+  
+👉 Used for:  
+	•	Risk / materiality assessment  
+  
+⸻  
+  
+**6. Review / override fields**  
+  
+Columns:  
+	•	Review Price  
+	•	VRC Comment  
+	•	Review Basis  
+  
+👉 Used when:  
+	•	Price issue identified  
+	•	Manual override required  
+  
+👉 Connects to:  
+	•	Upload process (earlier screenshot)  
+  
+⸻  
+  
+**7. Revaluation Set (CRITICAL CONCEPT)**  
+  
+This defines:  
+  
+👉 **Timing of pricing**  
+  
+Examples:  
+	•	Asia Close  
+	•	Tokyo Close  
+	•	London Close  
+	•	Official  
+  
+⸻  
+  
+**Meaning**  
+	•	Each portfolio is assigned a **valuation timing**  
+	•	Determines:  
+	•	Which snapshot (from earlier “Future Snap” files) is used  
+  
+⸻  
+  
+**Regional mapping**  
+	•	Asia / Tokyo → APAC  
+	•	London → EMEA  
+	•	Official → US  
+  
+👉 Directly ties to:  
+	•	Your **multiple timestamp snapshots earlier**  
+  
+⸻  
+  
+**8. Organizational mapping**  
+  
+Columns show:  
+	•	Middle office responsible  
+	•	Desk (GPL / FBL)  
+  
+⸻  
+  
+**Definitions**  
+	•	GPL = Global Product Line  
+	•	FBL = Desk classification  
+  
+👉 Used for:  
+	•	Ownership  
+	•	Escalation  
+  
+⸻  
+  
+**KEY FLOW (CONNECTED TO ALL PREVIOUS CONTEXT)**  
+	1.	**Snapshots (Future Snap files)** →  
+	2.	**Uploaded to RAMP (Reference Close Asia)** →  
+	3.	**Mapping decides price source + timing** →  
+	4.	**Futures Checker loads data** →  
+	5.	**Internal vs External comparison** →  
+	6.	**PnL impact calculated**  
+  
